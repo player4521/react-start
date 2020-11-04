@@ -6,18 +6,29 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      host : '',
+      host : 'player0',
+      test : '',
     }
   }
 
-  componentDidMount() {
-    this._getHost();
-  }
+  // componentDidMount() {
+  //   this._getHost();
+  // }
 
-  _getHost = async() => {
-    const res = await axios.get('/api/host');
-    this.setState({ host : res.data.host })
+  // _getHost = async() => {
+  //   const res = await axios.get('/api/host');
+  //   this.setState({ host : res.data.host })
+  // }
+  
+  // DB접속 테스트용------------------------------
+  componentDidMount() {
+    this._dbTest();
   }
+  _dbTest = async() => {
+    const res = await axios.get('/api/test');
+    console.log(res.data)
+  }
+  // DB접속 테스트용------------------------------
 
   render() {
     return(
